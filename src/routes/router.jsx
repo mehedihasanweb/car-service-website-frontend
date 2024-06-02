@@ -11,6 +11,7 @@ import AllServices from "../pages/DashboardPage/AllServices";
 import AddService from "../pages/DashboardPage/AddService";
 import DashboardHomePage from "../pages/DashboardPage/DashboardHomePage";
 import EditPage from "../pages/DashboardPage/EditPage";
+import EditProfile from "../pages/DashboardPage/EditProfile";
 
 const router = createBrowserRouter([
   {
@@ -63,6 +64,12 @@ const router = createBrowserRouter([
         ),
         loader: ({ params }) =>
           fetch(`http://localhost:5000/service/${params.id}`),
+      },
+      {
+        path: "update-profile/get/:id",
+        element: <EditProfile />,
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/user/get/${params.id}`),
       },
     ],
   },

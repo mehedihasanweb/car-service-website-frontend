@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 /* eslint-disable react/prop-types */
 const ServiceDetails = ({ service }) => {
   const { title, _id, img, price, description } = service;
-  console.log(service);
+
   return (
     <div className="card w-96 md:h-[500px] bg-base-100 shadow-xl">
       <figure>

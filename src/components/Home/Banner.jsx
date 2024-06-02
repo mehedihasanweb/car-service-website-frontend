@@ -6,6 +6,8 @@ const Banner = () => {
       className="hero min-h-[600px] mt-12"
       style={{
         backgroundImage: `url(${banner})`,
+        backgroundSize: "cover",
+        backgroundPosition: "center",
       }}
     >
       <div className="hero-overlay bg-opacity-60"></div>

@@ -6,8 +6,24 @@ const SocialLogin = () => {
   const navigate = useNavigate();
 
   const handleGoogleLogin = () => {
-    googleSignIn().then((result) => {
-      console.log(result);
+    googleSignIn().then((data) => {
+      console.log(data?.user?.displayName);
+      const userInfo = {
+        name: data?.user?.displayName,
+        email: data?.user?.email,
+      };
+      fetch("http://localhost:5000/user", {
+        method: "POST",
+        headers: {
+          "Content-type": "application/json",
+        },
+        body: JSON.stringify(userInfo),
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          console.log(data);
+          localStorage.setItem("token", data?.token);
+        });
       navigate("/");
     });
   };
